@@ -231,9 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4546c79add9443eaaf3f196434838ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0
-  RotationSpeed: 0
-  ShootSpeed: 0
+  MoveSpeed: 1
+  RotationSpeed: 1
+  ShootSpeed: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ namespace MonoBakers {
                 Value = authoring.ShootSpeed
             });
             AddComponent<PlayerProperties.Tag>(entity);
+            AddComponent<PlayerProperties.MoveInput>(entity);
         }
     }
 }
