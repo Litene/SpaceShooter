@@ -6,6 +6,7 @@ using Unity.Transforms;
 
 namespace Systems {
     [BurstCompile][UpdateBefore(typeof(TransformSystemGroup))] public partial struct PlayerMoveSystem : ISystem {
+        
         [BurstCompile] public void OnUpdate(ref SystemState state) {
             var deltaTime = SystemAPI.Time.DeltaTime;
             new MovePlayerJob {
@@ -14,16 +15,12 @@ namespace Systems {
         }
     }
 
-    public partial struct MovePlayerJob : IJobEntity {
+    [BurstCompile] public partial struct MovePlayerJob : IJobEntity {
         public float DeltaTime;
-
-        public void Execute(ref LocalTransform transform, in PlayerProperties.MoveInput moveInput,
-            PlayerProperties.MoveSpeed moveSpeed, PlayerProperties.RotationSpeed rotationSpeed) {
-            transform.Position.xy += moveInput.Value * moveSpeed.Value * DeltaTime;
+        [BurstCompile] public void Execute(ref LocalTransform transform, in PlayerProperties.MoveInput moveInput, PlayerProperties.RotationSpeed rotationSpeed) {
+                transform = transform.RotateZ(moveInput.Value.x * rotationSpeed.Value * DeltaTime);
             if (math.lengthsq(moveInput.Value) > float.Epsilon) {
-                var forward = new float3(moveInput.Value.x, moveInput.Value.y, 0);
-                var targetRot = forward * DeltaTime * rotationSpeed.Value;
-                transform.Rotation = quaternion.LookRotation(targetRot, math.up());
+            
             }
         }
     }

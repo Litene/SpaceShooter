@@ -52,7 +52,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""ef647972-d435-4adc-bf11-3b3c3a3d6f23"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""InvertVector2"",
                     ""groups"": """",
                     ""action"": ""PlayerMovement"",
                     ""isComposite"": true,
