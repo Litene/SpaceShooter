@@ -28,15 +28,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""3b86b41d-65c3-4b40-96f3-09e282eac021"",
             ""actions"": [
                 {
-                    ""name"": ""PlayerMovement"",
-                    ""type"": ""Value"",
-                    ""id"": ""fb55f065-48eb-407f-8fbf-6e025d93710f"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Shoot"",
                     ""type"": ""PassThrough"",
                     ""id"": ""7b3de23b-c930-43a4-bd25-edb55a69a8de"",
@@ -48,119 +39,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""ef647972-d435-4adc-bf11-3b3c3a3d6f23"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": ""InvertVector2"",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""ae3bbade-4502-40d2-9f72-c5d959cf8191"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""cc3a0de5-9eb0-4714-bf0d-11e771e5bc50"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""c5eed24f-d344-401a-bf7b-e5da258bebf0"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""f2c0e3dd-e551-46bb-948d-88913bb73033"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector Arrow Keys"",
-                    ""id"": ""b49a5a69-1159-4d71-bdfe-29ecfab2ff89"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""ba648816-b1bc-41bb-bdcf-2f32e8cf25e7"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""c59acd3c-e3f2-47ca-82f4-e13f259fd89b"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""9bf756fe-e204-473a-a28b-25349fe384c5"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""284a31ba-28d3-46d9-8ecc-58c3592cb52d"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PlayerMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
-                    ""id"": ""d5ca28ae-8515-4116-8c66-2929c6264faf"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""5730dfbb-a292-4410-84a2-36a2a7e128b6"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -175,7 +56,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
 }");
         // PlayerInputActionsMap
         m_PlayerInputActionsMap = asset.FindActionMap("PlayerInputActionsMap", throwIfNotFound: true);
-        m_PlayerInputActionsMap_PlayerMovement = m_PlayerInputActionsMap.FindAction("PlayerMovement", throwIfNotFound: true);
         m_PlayerInputActionsMap_Shoot = m_PlayerInputActionsMap.FindAction("Shoot", throwIfNotFound: true);
     }
 
@@ -238,13 +118,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // PlayerInputActionsMap
     private readonly InputActionMap m_PlayerInputActionsMap;
     private List<IPlayerInputActionsMapActions> m_PlayerInputActionsMapActionsCallbackInterfaces = new List<IPlayerInputActionsMapActions>();
-    private readonly InputAction m_PlayerInputActionsMap_PlayerMovement;
     private readonly InputAction m_PlayerInputActionsMap_Shoot;
     public struct PlayerInputActionsMapActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerInputActionsMapActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PlayerMovement => m_Wrapper.m_PlayerInputActionsMap_PlayerMovement;
         public InputAction @Shoot => m_Wrapper.m_PlayerInputActionsMap_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInputActionsMap; }
         public void Enable() { Get().Enable(); }
@@ -255,9 +133,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerInputActionsMapActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerInputActionsMapActionsCallbackInterfaces.Add(instance);
-            @PlayerMovement.started += instance.OnPlayerMovement;
-            @PlayerMovement.performed += instance.OnPlayerMovement;
-            @PlayerMovement.canceled += instance.OnPlayerMovement;
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
@@ -265,9 +140,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayerInputActionsMapActions instance)
         {
-            @PlayerMovement.started -= instance.OnPlayerMovement;
-            @PlayerMovement.performed -= instance.OnPlayerMovement;
-            @PlayerMovement.canceled -= instance.OnPlayerMovement;
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
@@ -290,7 +162,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public PlayerInputActionsMapActions @PlayerInputActionsMap => new PlayerInputActionsMapActions(this);
     public interface IPlayerInputActionsMapActions
     {
-        void OnPlayerMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
     }
 }

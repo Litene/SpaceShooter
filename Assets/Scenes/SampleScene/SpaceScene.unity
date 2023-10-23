@@ -162,6 +162,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3546632864221342459, guid: 0ee9e8f5f1af9734591b2818d8ad7beb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6694439866924453438, guid: 0ee9e8f5f1af9734591b2818d8ad7beb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -207,7 +211,8 @@ PrefabInstance:
       value: SpaceShipRoot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 341105129337702067, guid: 0ee9e8f5f1af9734591b2818d8ad7beb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7036710115600984511, guid: 0ee9e8f5f1af9734591b2818d8ad7beb, type: 3}
@@ -231,9 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4546c79add9443eaaf3f196434838ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
+  MoveSpeed: 0
   RotationSpeed: 1
   ShootSpeed: 1
+  AutoShoot: 1
+  ShootCooldown: 1
+  BulletPrefab: {fileID: 7469419708559915156, guid: 77368ca6233d56b4d963f0da10659f29, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
