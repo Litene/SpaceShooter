@@ -1,5 +1,6 @@
 ﻿using System;
 using Aspects;
+using Components;
 using Unity.Burst;
 using Unity.Entities;
 using UnityEditor.Search;
@@ -55,7 +56,7 @@ namespace Systems {
         public EntityCommandBuffer.ParallelWriter ECB;
         [BurstCompile] public void Execute(PlayerAspect aspect, [EntityIndexInQuery] int sortKey) {
             var bullet = ECB.Instantiate(sortKey ,aspect.GetBulletEntity);
-            ECB.SetComponent(sortKey, bullet, aspect.GetTransform);
+            ECB.SetComponent(sortKey, bullet, aspect.GetBulletSpawnPoint());
         }
     }
 }

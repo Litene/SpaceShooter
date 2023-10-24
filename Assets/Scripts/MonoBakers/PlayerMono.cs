@@ -34,7 +34,6 @@ namespace MonoBakers {
             AddComponent<PlayerProperties.MousePosition>(entity);
             AddComponent<PlayerProperties.Tag>(entity);
             AddComponent<PlayerProperties.ShootInput>(entity);
-            AddComponent<PlayerProperties.BulletCollection>(entity);
         }
     }
 }

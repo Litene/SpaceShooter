@@ -11,16 +11,10 @@ namespace Aspects {
         private readonly RefRO<PlayerProperties.ShootInput> _shootInput;
         private readonly RefRO<PlayerProperties.BulletEntity> _bulletEntity;
         private readonly RefRW<PlayerProperties.Shoot> _shoot;
-        private readonly RefRW<PlayerProperties.BulletCollection> _bullets;
         private readonly RefRW<LocalTransform> _transform;
         
         public Entity GetBulletEntity => _bulletEntity.ValueRO.Value;
 
-        public BlobArray<PlayerProperties.BulletEntity> Bullets {
-            get => _bullets.ValueRO.Value;
-            set => _bullets.ValueRW.Value = value;
-        }
-        
         public bool HasShot {
             get => _shoot.ValueRO.HasShot;
             set => _shoot.ValueRW.HasShot = value;
@@ -45,8 +39,12 @@ namespace Aspects {
             set => _transform.ValueRW = value;
         }
 
-        public float2 GetBulletSpawnPoint() {
-            return GetTransform.Forward().xy; // vector in the magnitude of 1 in the forward direcion
+        public LocalTransform GetBulletSpawnPoint() {
+            var trans = new LocalTransform();
+            trans.Position = GetTransform.Up() * 1.4f;
+            trans.Rotation = GetRotation(GetTransform);
+            trans.Scale = 1f;
+            return trans;
             
         }
 

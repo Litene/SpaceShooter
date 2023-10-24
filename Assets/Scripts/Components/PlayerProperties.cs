@@ -3,9 +3,8 @@ using Unity.Mathematics;
 using UnityEngine;
 
 namespace Components {
-    public static class PlayerProperties {
+    public struct PlayerProperties {
         public struct Tag : IComponentData {}
-
         public partial struct MousePosition : IComponentData {
             public float2 Value;
         }
@@ -35,10 +34,6 @@ namespace Components {
             public bool HasShot;
             public float ShootTimer;
             public float ShootCooldown;
-        }
-
-        public partial struct BulletCollection : IComponentData {
-            public BlobArray<BulletEntity> Value;
         }
     }
 }
