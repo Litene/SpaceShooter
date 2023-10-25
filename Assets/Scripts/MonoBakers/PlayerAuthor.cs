@@ -3,7 +3,7 @@ using Unity.Entities;
 using UnityEngine;
 
 namespace MonoBakers {
-    public class PlayerMono : MonoBehaviour {
+    public class PlayerAuthor : MonoBehaviour {
         public float MoveSpeed;
         public float RotationSpeed;
         public float ShootSpeed;
@@ -12,8 +12,8 @@ namespace MonoBakers {
         public GameObject BulletPrefab;
     }
 
-    public class PlayerBaker : Baker<PlayerMono> {
-        public override void Bake(PlayerMono authoring) {
+    public class PlayerBaker : Baker<PlayerAuthor> {
+        public override void Bake(PlayerAuthor authoring) {
             var entity = GetEntity(TransformUsageFlags.Dynamic);
             AddComponent(entity, new PlayerProperties.MoveSpeed {
                 Value = authoring.MoveSpeed

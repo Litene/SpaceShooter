@@ -45,7 +45,6 @@ namespace Aspects {
             trans.Rotation = GetRotation(GetTransform);
             trans.Scale = 1f;
             return trans;
-            
         }
 
         public void SetRotation(quaternion rotation) {
