@@ -9,7 +9,8 @@ namespace Aspects {
 		
 		private readonly RefRO<BulletProperties.MoveSpeed> _moveSpeed;
 		private readonly RefRW<LocalTransform> _transform;
-
+	
+		
 		public float3 Position {
 			get => _transform.ValueRO.Position;
 			set => _transform.ValueRW.Position = value;
@@ -25,5 +26,8 @@ namespace Aspects {
 		public void MoveBullet(float deltaTime) {
 			_transform.ValueRW.Position += _transform.ValueRO.Up() * _moveSpeed.ValueRO.Value * deltaTime;
 		}
+		
+		
+
 	}
 }
