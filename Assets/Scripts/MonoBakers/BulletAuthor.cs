@@ -13,6 +13,9 @@ namespace MonoBakers {
             AddComponent(entity, new BulletProperties.MoveSpeed {
                 Value = authoring.MoveSpeed
             });
+            AddComponent<CollisionComponent>(entity);
+            AddComponent<DestroyComponent>(entity);
+            AddComponent<BulletProperties.Tag>(entity);
         }
     }
 }

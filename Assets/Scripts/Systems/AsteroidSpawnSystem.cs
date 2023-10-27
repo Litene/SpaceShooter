@@ -1,4 +1,5 @@
-﻿using Aspects;
+﻿using System.Linq;
+using Aspects;
 using Components;
 using Unity.Burst;
 using Unity.Collections;
@@ -24,13 +25,11 @@ namespace Systems {
 			var spaceAspect = SystemAPI.GetAspect<SpaceAspect>(spaceEntity);
 			var deltaTime = SystemAPI.Time.DeltaTime;
 			var ecbParallel = SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>();
+			
 			spaceAspect.SpawnTimer += deltaTime;
-
-			if (spaceAspect.SpawnTimer > spaceAspect.SpawnRate) {
+			var spawnRate = spaceAspect.CurrentSpawnsPerSecond > 0 ? 1 / spaceAspect.CurrentSpawnsPerSecond : 1;
+			if (spaceAspect.SpawnTimer > spawnRate) {
 				spaceAspect.SpawnTimer = 0;
-				var statsScreen = SystemAPI.GetSingletonEntity<StatsProperties.AsteroidCount>();
-				var statsAspect = SystemAPI.GetAspect<StatsAspect>(statsScreen);
-				statsAspect.GetSetAsteroidCount++;
 				new SpawnJob {
 					ECB = ecbParallel.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter(),
 					DeltaTime = deltaTime

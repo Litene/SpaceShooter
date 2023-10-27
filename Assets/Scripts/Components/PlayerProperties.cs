@@ -35,5 +35,9 @@ namespace Components {
             public float ShootTimer;
             public float ShootCooldown;
         }
+
+        public partial struct Lives : IComponentData {
+            public int Value;
+        }
     }
 }

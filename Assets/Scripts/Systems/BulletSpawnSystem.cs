@@ -1,10 +1,8 @@
-﻿using System;
-using Aspects;
+﻿using Aspects;
 using Components;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEditor.Search;
-using Utility;
+
 
 namespace Systems {
 	[BurstCompile] public partial struct BulletSpawnSystem : ISystem {

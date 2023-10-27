@@ -9,6 +9,7 @@ namespace MonoBakers {
         public float ShootSpeed;
         public bool AutoShoot;
         public float ShootCooldown;
+        public int TotalLives;
         public GameObject BulletPrefab;
     }
 
@@ -31,9 +32,13 @@ namespace MonoBakers {
                 AutoShoot = authoring.AutoShoot,
                 ShootCooldown = authoring.ShootCooldown
             });
+            AddComponent(entity, new PlayerProperties.Lives {
+                Value = authoring.TotalLives
+            });
             AddComponent<PlayerProperties.MousePosition>(entity);
             AddComponent<PlayerProperties.Tag>(entity);
             AddComponent<PlayerProperties.ShootInput>(entity);
+            AddComponent<CollisionComponent>(entity);
         }
     }
 }

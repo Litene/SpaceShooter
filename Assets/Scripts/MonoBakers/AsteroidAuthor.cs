@@ -1,7 +1,6 @@
 ﻿using Components;
 using Unity.Entities;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 namespace MonoBakers {
 	public class AsteroidAuthor : MonoBehaviour {
@@ -15,7 +14,9 @@ namespace MonoBakers {
 			AddComponent(entity, new AsteroidProperties.MoveSpeed {
 				Value = authoring.MovementSpeed
 			});
-			AddComponent<AsteroidProperties.AsteroidTag>(entity);
+			AddComponent<AsteroidProperties.Tag>(entity);
+			AddComponent<CollisionComponent>(entity);
+			AddComponent<DestroyComponent>(entity);
 		}
 	}
 }

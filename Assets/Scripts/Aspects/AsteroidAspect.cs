@@ -12,7 +12,7 @@ namespace Aspects {
 
 		private readonly RefRW<LocalTransform> _transform;
 
-		private readonly RefRO<AsteroidProperties.AsteroidTag> _tag;
+		private readonly RefRO<AsteroidProperties.Tag> _tag;
 
 		private readonly RefRO<AsteroidProperties.MoveSpeed> _moveSpeed;
 
