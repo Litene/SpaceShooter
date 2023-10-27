@@ -129,7 +129,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a58470eb2864871bdd28a4b1c595a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CircleRadius: 50
-  MinAngleDistance: 30
-  MaxAngleDistance: 290
-  AsteroidSpawnSeed: 1
+  MovementSpeed: 5

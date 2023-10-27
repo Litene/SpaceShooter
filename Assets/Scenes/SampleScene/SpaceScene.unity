@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1024086669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024086671}
+  - component: {fileID: 1024086670}
+  m_Layer: 0
+  m_Name: Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1024086670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024086669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb38631c96e49ccb5d99c1da2bd73a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1024086671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024086669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1561390900
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1561390901}
+  - component: {fileID: 1561390902}
   m_Layer: 0
   m_Name: Space
   m_TagString: Untagged
@@ -154,6 +199,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561390902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561390900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26348c3408344ca1bb0627735b14d0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AsteroidSpawnRate: 0.01
+  AsteroidSpawnSeed: 1
+  CircleRadius: 35
+  MinAngleDistance: 30
+  MaxAngleDistance: 280
+  AsteroidPrefab: {fileID: 2184475056950776034, guid: b764267938f1d2342b3581fd8ad62a29, type: 3}
 --- !u!1001 &9171873400514347782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -238,9 +301,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 0
   RotationSpeed: 1
-  ShootSpeed: 1
+  ShootSpeed: 5
   AutoShoot: 1
-  ShootCooldown: 1
+  ShootCooldown: 0.1
   BulletPrefab: {fileID: 7469419708559915156, guid: 77368ca6233d56b4d963f0da10659f29, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -248,3 +311,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1561390901}
   - {fileID: 9171873400514347782}
+  - {fileID: 1024086671}

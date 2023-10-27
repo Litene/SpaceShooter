@@ -5,23 +5,17 @@ using Random = Unity.Mathematics.Random;
 
 namespace MonoBakers {
 	public class AsteroidAuthor : MonoBehaviour {
-		public float CircleRadius;
-		public float MinAngleDistance;
-		public float MaxAngleDistance;
-		public uint AsteroidSpawnSeed;
+		public float MovementSpeed;
+
 	}
 
 	public class AsteroidBaker : Baker<AsteroidAuthor> {
 		public override void Bake(AsteroidAuthor authoring) {
 			var entity = GetEntity(TransformUsageFlags.Dynamic);
-			AddComponent(entity, new AsteroidProperties.CircleData {
-				CircleRadius = authoring.CircleRadius,
-				MinAngleDistance = authoring.MinAngleDistance,
-				MaxAngleDistance = authoring.MaxAngleDistance
+			AddComponent(entity, new AsteroidProperties.MoveSpeed {
+				Value = authoring.MovementSpeed
 			});
-			AddComponent(entity, new AsteroidProperties.RandomValue {
-				Value = Random.CreateFromIndex(authoring.AsteroidSpawnSeed)
-			});
+			AddComponent<AsteroidProperties.AsteroidTag>(entity);
 		}
 	}
 }
