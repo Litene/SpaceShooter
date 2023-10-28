@@ -1,9 +1,10 @@
 ﻿using Aspects;
+using Unity.Burst;
 using Unity.Entities;
 
 namespace Systems {
-    public partial struct AsteroidMoveSystem : ISystem {
-        public void OnUpdate(ref SystemState state) {
+    [BurstCompile] public partial struct AsteroidMoveSystem : ISystem {
+        [BurstCompile] public void OnUpdate(ref SystemState state) {
             var deltaTime = SystemAPI.Time.DeltaTime;
             new AsteroidMoveJob {
                 DeltaTime = deltaTime
@@ -14,12 +15,10 @@ namespace Systems {
 
     }
 
-    public partial struct AsteroidMoveJob : IJobEntity {
+    [BurstCompile] public partial struct AsteroidMoveJob : IJobEntity {
         public float DeltaTime;
-        public bool NotFirstIteration;
-        private void Execute(AsteroidAspect aspect, [EntityIndexInQuery] int sortKey) {
-            aspect.Move(DeltaTime, !NotFirstIteration);
-            NotFirstIteration = true;
+        [BurstCompile] private void Execute(AsteroidAspect aspect, [EntityIndexInQuery] int sortKey) {
+            aspect.Move(DeltaTime);
         }
 
     }

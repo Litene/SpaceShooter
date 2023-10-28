@@ -11,7 +11,7 @@ using Utility;
 namespace Systems {
 	[BurstCompile] public partial struct CollisionSystem : ISystem {
 
-		public void OnCreate(ref SystemState state) {
+		[BurstCompile] public void OnCreate(ref SystemState state) {
 			state.RequireForUpdate<EndFixedStepSimulationEntityCommandBufferSystem.Singleton>();
 			state.RequireForUpdate<SimulationSingleton>();
 		}
@@ -34,7 +34,7 @@ namespace Systems {
 		[ReadOnly] public ComponentLookup<DestroyComponent> DestroyLookup;
 		public EntityCommandBuffer ECB;
 
-		public void Execute(Unity.Physics.CollisionEvent collisionEvent) {
+		[BurstCompile] public void Execute(Unity.Physics.CollisionEvent collisionEvent) {
 			// revert methods inside
 			if (!CollisionLookup.HasComponent(collisionEvent.EntityA) || !CollisionLookup.HasComponent(collisionEvent.EntityB)) return;
 		

@@ -24,6 +24,5 @@ namespace Systems {
 			statsAspect.GetSetBulletCount = bulletCount;	
 			statsAspect.GetSetAsteroidCount = asteroidCount;
 		}
-
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Components;
 using TMPro;
 using Unity.Entities;
@@ -18,6 +19,8 @@ namespace MonoBehavior {
 
 		[SerializeField] private float _hudRefreshRate = 1f;
 
+		private bool _initialized;
+
 		private float _timer;
 
 		private EntityManager _manager;
@@ -25,15 +28,23 @@ namespace MonoBehavior {
 		private Entity _statsEntity;
 		private Entity _spaceEntity;
 
-
-		private void Start() {
+		private IEnumerator Start() {
 			_manager = World.DefaultGameObjectInjectionWorld.EntityManager;
-			_statsEntity = _manager.CreateEntityQuery(typeof(StatsProperties.Tag)).GetSingletonEntity();
-			_spaceEntity = _manager.CreateEntityQuery(typeof(DifficultyComponent)).GetSingletonEntity();
-			Application.targetFrameRate = 2000;
+			yield return new WaitForSeconds(0.2f);
+			EntityQuery statsEntity = _manager.CreateEntityQuery(typeof(StatsProperties.Tag));
+			EntityQuery spaceEntity = _manager.CreateEntityQuery(typeof(DifficultyComponent));
+			statsEntity.TryGetSingletonEntity<StatsProperties.Tag>(out Entity stat);
+			spaceEntity.TryGetSingletonEntity<DifficultyComponent>(out Entity difi);
+			_statsEntity = stat;
+			_spaceEntity = difi;
+
+			Application.targetFrameRate = 20000;
+			_initialized = true;
 		}
 
 		private void Update() {
+			if (!_initialized) return;
+			
 			if (Time.unscaledTime > _timer) {
 				int fps = (int)(1f / Time.unscaledDeltaTime);
 				_fpsText.text = "FPS: " + fps;
@@ -48,6 +59,7 @@ namespace MonoBehavior {
 			float timeTillNextDifficulty = _manager.GetComponentData<DifficultyComponent>(_spaceEntity).DifficultyTimer;
 			float currentSpawnsPerSecond = _manager.GetComponentData<DifficultyComponent>(_spaceEntity).SpawnsPerSecond;
 
+			//Debug.Log($"statsRef: {_statsEntity}, spaceRef: {_spaceEntity}, asteroidCount: {asteroidCount}");
 			_currentDifficultyText.text = "Current difficulty: " + currentDifficulty.ToString();
 			_TimeTillNextDifficultyText.text = "Difficulty increase in: " + $"{timeTillNextDifficulty:F1}s";
 			_CurrentSpawnRateText.text = "Current spawn rate: " + $"{currentSpawnsPerSecond:F1}/s";

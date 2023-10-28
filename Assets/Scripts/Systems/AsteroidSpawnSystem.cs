@@ -12,7 +12,7 @@ using Utility;
 namespace Systems {
 	[BurstCompile] public partial struct AsteroidSpawnSystem : ISystem {
 		
-		public void OnCreate(ref SystemState state) {
+		[BurstCompile] public void OnCreate(ref SystemState state) {
 			state.RequireForUpdate<StatsProperties.AsteroidCount>();
 			state.RequireForUpdate<BeginInitializationEntityCommandBufferSystem.Singleton>();
 			state.RequireForUpdate<SpaceProperties.SpawnValues>();

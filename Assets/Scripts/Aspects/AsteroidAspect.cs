@@ -16,7 +16,7 @@ namespace Aspects {
 
 		private readonly RefRO<AsteroidProperties.MoveSpeed> _moveSpeed;
 
-		public void Move(float deltaTime, bool FirstIteration) {
+		public void Move(float deltaTime) {
 			_transform.ValueRW.Rotation = GetRotation();
 			_transform.ValueRW.Position -= _transform.ValueRO.Up() * _moveSpeed.ValueRO.Value * deltaTime;
 		}

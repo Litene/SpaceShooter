@@ -1,16 +1,17 @@
 ﻿using Aspects;
 using Components;
+using Unity.Burst;
 using Unity.Entities;
 using UnityEngine;
 
 namespace Systems {
-	public partial struct DifficultySystem : ISystem {
+	[BurstCompile] public partial struct DifficultySystem : ISystem {
 
-		public void OnCreate(ref SystemState state) {
+		[BurstCompile] public void OnCreate(ref SystemState state) {
 			state.RequireForUpdate<SpaceProperties.CircleData>();
 		}
 
-		public void OnUpdate(ref SystemState state) {
+		[BurstCompile] public void OnUpdate(ref SystemState state) {
 			var spaceEntity = SystemAPI.GetSingletonEntity<SpaceProperties.CircleData>();
 			var spaceAspect = SystemAPI.GetAspect<SpaceAspect>(spaceEntity);
 			spaceAspect.DifficultyTimer -= Time.deltaTime;
