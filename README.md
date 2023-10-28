@@ -3,11 +3,11 @@
 Create a small space shooter game with the following features:
 
 Simple movement:
-	I use the mouse to move the orientation of the ship.
+	>I use the mouse to move the orientation of the ship.
 Shooting:
-	The mouse button fires a projectile; you can hold it to shoot faster.
+	>The mouse button fires a projectile; you can hold it to shoot faster.
 Waves of enemies:
-	The enemies start coming 2/s; I wanted to showcase the performance, so every 20th 	second, the spawn rate is increased by a factor of 1.2. 
+	>The enemies start coming 2/s; I wanted to showcase the performance, so every 20th 	second, the spawn rate is increased by a factor of 1.2. 
 
 Using Unity DOTS, requirements are met just by getting everything to work; you can only use unmanageable datatypes by default; you separate the data, the systems, and the entities. Which makes it easier for the processor to utilize the L1, L2, L3 cache. I utilized Unity's burst compiler to improve the performance, and the project is heavily multithreaded. On my computer with a new AMD Ryzen 5 7600, with 12 threads, it has a stable FPS between 1200-3900. I, therefore, included relevant information in the build to showcase performance rather than focusing on the gameplay aspect.
 
