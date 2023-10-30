@@ -1087,13 +1087,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26348c3408344ca1bb0627735b14d0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AsteroidSpawnsPerSecond: 2
+  AsteroidSpawnsPerSecond: 50
   AsteroidSpawnSeed: 1
   CircleRadius: 35
   MinAngleDistance: 0
   MaxAngleDistance: 30
   DifficultyMultiplier: 1.2
-  TimePerDifficulty: 20
+  TimePerDifficulty: 5
   AsteroidPrefab: {fileID: 2184475056950776034, guid: b764267938f1d2342b3581fd8ad62a29, type: 3}
 --- !u!1 &2113521806
 GameObject:

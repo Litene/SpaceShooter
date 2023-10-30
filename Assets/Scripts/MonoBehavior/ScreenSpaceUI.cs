@@ -54,6 +54,8 @@ namespace MonoBehavior {
 			int asteroidCount = _manager.GetComponentData<StatsProperties.AsteroidCount>(_statsEntity).value;
 			int bulletCount = _manager.GetComponentData<StatsProperties.BulletCount>(_statsEntity).value;
 			int totalCount = asteroidCount + bulletCount;
+			
+			
 
 			int currentDifficulty = _manager.GetComponentData<DifficultyComponent>(_spaceEntity).CurrentDifficulty;
 			float timeTillNextDifficulty = _manager.GetComponentData<DifficultyComponent>(_spaceEntity).DifficultyTimer;

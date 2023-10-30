@@ -21,6 +21,15 @@ namespace Aspects {
 			_transform.ValueRW.Position -= _transform.ValueRO.Up() * _moveSpeed.ValueRO.Value * deltaTime;
 		}
 
+		public void DestroyAsteroid(EntityCommandBuffer ecb, Entity entity) {
+			ecb.DestroyEntity(entity);
+		}
+
+		public LocalTransform GetTransform {
+			get => _transform.ValueRO;
+			set => _transform.ValueRW = value;
+		}
+
 		public quaternion GetRotation() {
 			var normalizedVector = new Vector2(_transform.ValueRW.Position.x, _transform.ValueRW.Position.y).normalized;
 			var lookRotation =
