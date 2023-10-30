@@ -21,4 +21,14 @@ Image 1
 Image 2
 ![image](https://github.com/Litene/SpaceShooter/assets/55480495/72f57557-87a7-448f-aa5e-b74b547de183)
 
-As shown by image
+As shown by image 1 an object-oriented approach that doesn't consider memory allocation where a new List is allocated every frame in update and Distance checks are used (see Image 3) is vastly less performant than an approach using a data-oriented approach utilizing the burst compiler and multithreading with jobs (see image 4). Image 1 dragged the FPS down in the project to somewhere between 1 and 10 while the optimal solution stayed between 200 to 400 FPS; this was with Deep profiling and call stack enabled in the profiler. 
+
+Image 3
+![image](https://github.com/Litene/SpaceShooter/assets/55480495/37219181-549f-45c2-a8c7-c255e6e20540)
+
+Image 4
+![image](https://github.com/Litene/SpaceShooter/assets/55480495/c961ca8b-f6d4-4c67-a8b0-e17420a50966)
+
+
+
+
