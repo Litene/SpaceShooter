@@ -20,21 +20,6 @@ namespace Systems {
 
 		[BurstCompile]
 		public void OnUpdate(ref SystemState state) {
-
-
-			// foreach (var asteroidAspect in SystemAPI.Query<AsteroidAspect>().WithAll<AsteroidProperties.Tag>()) {
-			// 	foreach (var asteroidAspect2 in SystemAPI.Query<AsteroidAspect>().WithAll<AsteroidProperties.Tag>()) {
-			// 		var buffer = SystemAPI.GetSingleton<EndVariableRateSimulationEntityCommandBufferSystem.Singleton>();
-			// 		if (asteroidAspect.Entity != asteroidAspect2.Entity) {
-			// 			if (math.distance(asteroidAspect.GetTransform.Position.x, asteroidAspect2.GetTransform.Position.x) < 1.0f && 
-			// 			    math.distance(asteroidAspect.GetTransform.Position.y, asteroidAspect2.GetTransform.Position.y) < 1.0f) {
-			// 				asteroidAspect.DestroyAsteroid(buffer.CreateCommandBuffer(state.WorldUnmanaged), asteroidAspect.Entity);
-			// 				asteroidAspect2.DestroyAsteroid(buffer.CreateCommandBuffer(state.WorldUnmanaged), asteroidAspect2.Entity);
-			// 			}
-			// 		}
-			// 	}
-			// }
-			
 			var ecb = SystemAPI.GetSingleton<EndFixedStepSimulationEntityCommandBufferSystem.Singleton>();
 			state.Dependency = new CollisionEvent {
 				CollisionLookup = SystemAPI.GetComponentLookup<CollisionComponent>(),
